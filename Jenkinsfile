@@ -9,7 +9,7 @@ node(){
     checkout scm
   }
   stage('build'){
-    def app = docker.image("quay.io/doerler/jenkins:casc_latest")
+    def app = docker.build("quay.io/doerler/jenkins:casc_latest")
     docker.withRegistry('https://quay.io', 'quay.io') {
       app.push('casc_latest')
     }
